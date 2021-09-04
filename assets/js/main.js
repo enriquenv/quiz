@@ -61,72 +61,33 @@ let data=[
     }
 ]
 
-// console.log(data[0]);
-
-// let img1 = document.createElement('img');
-// img1.src = data[0]["url"];
-// document.body.appendChild(img1);
-
-// let q1 = document.createElement('p');
-// q1.textContent = data[0]["question"];
-// document.body.appendChild(q1);
-
-// let choices = document.createElement("ul");
-// choices.innerHTML = `<li>${data[0]["choice"][0]}</li>`;
-// choices.innerHTML += `<li>${data[0]["choice"][1]}</li>`;
-// choices.innerHTML += `<li>${data[0]["choice"][2]}</li>`;
-// choices.innerHTML += `<li>${data[0]["choice"][3]}</li>`;
-// document.body.appendChild(choices);
-
-// console.log(choices);
-// console.log(choices.querySelectorAll('li'));
-
-// const choices2 = choices.querySelectorAll('li');
-// console.log(choices2);
-
-// choices2.forEach(elt => {
-//     console.log("elt: ", elt);
-//     if (elt.innerText == data[0]["answer"]) {
-//         // elt.classList.add('green');
-//         elt.setAttribute('onclick','style.backgroundColor = "green"');
-//     } else {
-//         // elt.classList.add('red');
-//         elt.setAttribute('onclick','style.backgroundColor = "red"');
-//     }
-
-// })
-// console.log(data.length);
+const content = document.getElementById("content");
 
 for (i = 0; i <= data.length; i++) {
 
-let img1 = document.createElement('img');
-img1.src = data[i]["url"];
-document.body.appendChild(img1);
+    let img1 = document.createElement('img');
+    img1.src = data[i]["url"];
+    content.appendChild(img1);
 
-let q1 = document.createElement('p');
-q1.textContent = data[i]["question"];
-document.body.appendChild(q1);
+    let q1 = document.createElement('p');
+    q1.textContent = data[i]["question"];
+    content.appendChild(q1);
 
-let choices = document.createElement("ul");
+    let choices = document.createElement("ul");
 
-    for (x = 0; x < data[i]["choice"].length; x++) {
-        let litext = data[i]["choice"][x];
-        choices.innerHTML += `<li>${litext}</li>`;
-    }
-document.body.appendChild(choices);
+        for (x = 0; x < data[i]["choice"].length; x++) {
+            let litext = data[i]["choice"][x];
+            choices.innerHTML += `<li>${litext}</li>`;
+        }
+    content.appendChild(choices);
 
-const choices2 = choices.querySelectorAll('li');
+    const choices2 = choices.querySelectorAll('li');
 
-choices2.forEach(elt => {
-    console.log("elt: ", elt);
-    if (elt.innerText.toString() == data[i]["answer"].toString()) {
-        // elt.classList.add('green');
-        elt.setAttribute('onclick','style.backgroundColor = "green"');
-    } else {
-        // elt.classList.add('red');
-        elt.setAttribute('onclick','style.backgroundColor = "red"');
-    }
-
+    choices2.forEach(elt => {
+        if (elt.innerText.toString() == data[i]["answer"].toString()) {
+            elt.setAttribute('onclick','style.backgroundColor = "green"');
+        } else {
+            elt.setAttribute('onclick','style.backgroundColor = "red"');
+        }
 })
-
 }
