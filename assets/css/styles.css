@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+
+ul > li {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2E2E2E;
+    color: white;
+}
